@@ -9,6 +9,7 @@ const serieUrl = process.env.URL_SERIES;
 app.use(express.json());
 app.use(express.urlencoded( {extended: true} ))
 
+// http://localhost:4000
 app.get(`/cinema/movies`, async (req,res) => {
     try{
         const response = await axios.get(`${movieUrl}/movies`);
@@ -18,13 +19,14 @@ app.get(`/cinema/movies`, async (req,res) => {
             result: response.data.result
         })
     } catch(error) {
-        console.log(error)
-        res.status(400).json({
-            status: 'Bad Request',
+        console.log(error.stack)
+        res.status(500).json({
+            status: 'Server Error',
         })
     }
 })
 
+// http://localhost:5000
 app.get(`/cinema/series`, async (req,res) => {
     try{
         const response = await axios.get(`${serieUrl}/series`);
@@ -34,9 +36,9 @@ app.get(`/cinema/series`, async (req,res) => {
             result: response.data.result
         })
     } catch(error) {
-        console.log(error)
-        res.status(400).json({
-            status: 'Bad Request',
+        console.log(error.stack)
+        res.status(500).json({
+            status: 'Server Error',
         })
     }
 })

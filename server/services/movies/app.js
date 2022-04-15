@@ -10,7 +10,9 @@ app.use(express.urlencoded( {extended: true} ))
 app.get(`/movies`, async (req, res) => {
 
     const options = {
-        attributes: ['name', 'duration', 'genre'],
+        attributes: {
+            exclude: ['createdAt', 'updatedAt']
+        }
     }
     try {
         const findAll = await Movie.findAll(options);

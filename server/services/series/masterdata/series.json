@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Peaky Blinders",
+        "duration": 240,
+        "episodes": 10,
+        "seasons": 5,
+        "genre": "Crime"
+    },
+    {
+        "name": "Moon Knight",
+        "duration": 200,
+        "episodes": 15,
+        "seasons": 6,
+        "genre": "Crime"
+    },
+    {
+        "name": "Vikings: Valhalla",
+        "duration": 120,
+        "episodes": 12,
+        "seasons": 1,
+        "genre": "Action & Adventure"
+    }
+]

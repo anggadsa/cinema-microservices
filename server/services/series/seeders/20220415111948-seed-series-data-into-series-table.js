@@ -11,7 +11,7 @@ module.exports = {
         return eachSeriesData
       })
       
-      await queryInterface.bulkInsert('Series', eachSeriesData);
+      await queryInterface.bulkInsert('Series', seriesSeedData);
   },
 
   async down (queryInterface, Sequelize) {

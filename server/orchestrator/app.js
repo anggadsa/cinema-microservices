@@ -26,6 +26,7 @@ app.get(`/cinema/movies`, async (req,res) => {
         })
     }
 })
+
 // GET by id
 app.get(`/cinema/movies/:id`, async (req,res) => {
     const id = req.params.id
@@ -36,6 +37,29 @@ app.get(`/cinema/movies/:id`, async (req,res) => {
             status: 'Success',
             result: response.data.result
         })
+    } catch(error) {
+        console.log(error.stack)
+        res.status(500).json({
+            status: 'Server Error',
+        })
+    }
+})
+// ADD new movies
+app.post(`/cinema/movies/create`, async (req,res) => {
+    const { name, duration, genre } = req.body;
+    try{
+        const response = await axios.post(`${movieUrl}/movies/create`, {
+            name: name,
+            duration: duration,
+            genre: genre,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        })
+        res.status(200).json({
+            status: 'Success',
+            result: response.data.result
+        })
+
     } catch(error) {
         console.log(error.stack)
         res.status(500).json({

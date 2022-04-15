@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Fantastic Beast And Where to Find Them",
+        "duration": 240,
+        "genre": "Fantasy"
+    },
+    {
+        "name": "Doctor Strange in the Multiverse of Madness",
+        "duration": 184,
+        "genre": "Horror"
+    },
+    {
+        "name": "Morbius",
+        "duration": 120,
+        "genre": "Horror"
+    }
+]

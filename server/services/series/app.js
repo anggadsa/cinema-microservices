@@ -7,7 +7,7 @@ const { Movie } = require(`./models`)
 app.use(express.json());
 app.use(express.urlencoded( {extended: true} ))
 
-app.get(`/movies`, async (req, res) => {
+app.get(`/series`, async (req, res) => {
 
     const options = {
         attributes: ['name', 'duration', 'genre'],
@@ -25,7 +25,7 @@ app.get(`/movies`, async (req, res) => {
     }
 });
 
-app.get('/movies/:id', async (req,res) => {
+app.get('/series/:id', async (req,res) => {
     const id = req.params.id;
     console.log(`Masuk`)
     try{
@@ -42,7 +42,7 @@ app.get('/movies/:id', async (req,res) => {
     }
 });
 
-app.post('/movies/create', async (req, res) => {
+app.post('/series/create', async (req, res) => {
     const { name, duration, genre } = req.body;
 
     try{
@@ -69,5 +69,5 @@ app.post('/movies/create', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server untuk service movies dijalankan di port ${port}`)
+    console.log(`Server untuk service series dijalankan di port ${port}`)
 })

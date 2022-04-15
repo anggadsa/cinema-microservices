@@ -9,6 +9,7 @@ const serieUrl = process.env.URL_SERIES;
 app.use(express.json());
 app.use(express.urlencoded( {extended: true} ))
 
+// SERVICES of MOVIES //
 // http://localhost:4000
 app.get(`/cinema/movies`, async (req,res) => {
     try{
@@ -25,7 +26,25 @@ app.get(`/cinema/movies`, async (req,res) => {
         })
     }
 })
+// GET by id
+app.get(`/cinema/movies/:id`, async (req,res) => {
+    const id = req.params.id
+    try{
+        const response = await axios.get(`${movieUrl}/movies/${id}`);
+        // console.log(response.data)
+        res.status(200).json({
+            status: 'Success',
+            result: response.data.result
+        })
+    } catch(error) {
+        console.log(error.stack)
+        res.status(500).json({
+            status: 'Server Error',
+        })
+    }
+})
 
+// SERVICES of SERIES //
 // http://localhost:5000
 app.get(`/cinema/series`, async (req,res) => {
     try{
@@ -42,6 +61,7 @@ app.get(`/cinema/series`, async (req,res) => {
         })
     }
 })
+
 
 app.listen(port, () => {
     console.log(`Server untuk Orchestrator Cinema dijalankan di port ${port}`)

@@ -44,6 +44,7 @@ app.get(`/cinema/movies/:id`, async (req,res) => {
         })
     }
 })
+
 // ADD new movies
 app.post(`/cinema/movies/create`, async (req,res) => {
     const { name, duration, genre } = req.body;
